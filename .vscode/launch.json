@@ -8,11 +8,10 @@
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=multiplayer-api",
-                    "--package=multiplayer-api"
+                    "--bin=multiplayer_api",
                 ],
                 "filter": {
-                    "name": "multiplayer-api",
+                    "name": "multiplayer_api",
                     "kind": "bin"
                 }
             },
