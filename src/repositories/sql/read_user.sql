@@ -3,4 +3,4 @@ SELECT
 FROM
     users 
 WHERE 
-    id = $1
+    id = $1 and deleted_at IS NULL
