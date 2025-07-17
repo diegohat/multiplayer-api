@@ -4,20 +4,20 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "multiplayer-api",
+            "name": "api",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=multiplayer_api",
+                    "--bin=api",
                 ],
                 "filter": {
-                    "name": "multiplayer-api",
+                    "name": "api",
                     "kind": "bin"
                 }
             },
             "env": {
                 "RUST_ENV": "local",
-                "APP_NAME": "multiplayer-api",
+                "APP_NAME": "api",
                 "RUST_BACKTRACE": "full"
             },
             "args": [],

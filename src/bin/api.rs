@@ -4,7 +4,7 @@ use axum::{
     serve,
 };
 use dotenvy::dotenv;
-use multiplayer_api::{
+use api::{
     handlers::users::{create_user, delete_user, read_user, update_user},
     repositories::UsersRepository,
     services::UsersService,
