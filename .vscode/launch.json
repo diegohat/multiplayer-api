@@ -11,7 +11,7 @@
                     "--bin=multiplayer_api",
                 ],
                 "filter": {
-                    "name": "multiplayer_api",
+                    "name": "multiplayer-api",
                     "kind": "bin"
                 }
             },

@@ -8,7 +8,8 @@ edition = "2024"
 axum = { version = "0.8.4", features = ["macros"] }
 
 # Async runtime
-tokio = { version = "1.45.1", features = ["full", "rt-multi-thread"] }
+tokio = { version = "1.46.1", features = ["full", "rt-multi-thread"] }
+async-trait = { version = "0.1.88" }
 
 # Database
 sqlx = { version = "0.8.6", features = ["postgres", "runtime-tokio", "macros", "chrono"] }

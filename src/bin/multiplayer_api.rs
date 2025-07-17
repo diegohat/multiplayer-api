@@ -4,7 +4,11 @@ use axum::{
     serve,
 };
 use dotenvy::dotenv;
-use multiplayer_api::handlers::users::{create_user, delete_user, read_user, update_user};
+use multiplayer_api::{
+    handlers::users::{create_user, delete_user, read_user, update_user},
+    repositories::UsersRepository,
+    services::UsersService,
+};
 use sqlx::postgres::{PgConnectOptions, PgPoolOptions};
 use std::{env, time::Duration};
 use tokio::net::TcpListener;
@@ -36,13 +40,15 @@ async fn main() {
         .await
         .expect("Failed to connect to the database");
 
+    let users_repo = UsersRepository::new(pool.clone());
+    let users_service = UsersService::new(users_repo);
+
     let app = Router::new()
-        .route("/", get(|| async { "Hello, World!" }))
         .route("/users", post(create_user))
         .route("/users/{id}", get(read_user))
         .route("/users/{id}", patch(update_user))
         .route("/users/{id}", delete(delete_user))
-        .with_state(pool.clone());
+        .with_state(users_service);
 
     let listener = TcpListener::bind("localhost:3000")
         .await
