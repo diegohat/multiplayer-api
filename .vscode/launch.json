@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "multiplayer-api",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=multiplayer_api",
+                ],
+                "filter": {
+                    "name": "multiplayer_api",
+                    "kind": "bin"
+                }
+            },
+            "env": {
+                "RUST_ENV": "local",
+                "APP_NAME": "multiplayer-api",
+                "RUST_BACKTRACE": "full"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole"
+        }
+    ]
+}
