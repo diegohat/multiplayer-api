@@ -50,9 +50,9 @@ async fn main() {
         .route("/users/{id}", delete(delete_user))
         .with_state(users_service);
 
-    let listener = TcpListener::bind("localhost:3000")
+    let listener = TcpListener::bind("0.0.0.0:3000")
         .await
         .expect("Failed to bind to address");
-    info!("Server running on http://localhost:3000");
+    info!("Server running on http://0.0.0.0:3000");
     serve(listener, app).await.expect("Server error");
 }
